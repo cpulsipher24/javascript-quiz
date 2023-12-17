@@ -77,12 +77,17 @@ function checkAnswer(choiceIndex) {
 
     userAnswers[currentQuestionIndex] = choiceIndex;
 
-    if(choiceIndex === currentQuestion.correctAnswer) {
+    if (choiceIndex === currentQuestion.correctAnswer) {
         resultContainer.textContent = "Correct!";
     } else {
         resultContainer.textContent = "Incorrect!";
-        timerCount -= 10; // Subtract 10 seconds for incorrect answer
+        timerCount -= 10; // Deduct 10 seconds for incorrect answer
+        if (timerCount < 0) {
+            timerCount = 0; // Ensure timer doesn't go negative
+        }
+        updateTimerDisplay(); // Update timer display
     }
+
     setTimeout(() => {
         resultContainer.textContent = "";
         currentQuestionIndex++;
@@ -93,7 +98,8 @@ function checkAnswer(choiceIndex) {
             endQuiz();
         }
     }, 1000);
-    }
+}
+
 
     // Function to end the quiz
 function endQuiz() {
