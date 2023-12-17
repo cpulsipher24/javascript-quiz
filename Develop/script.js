@@ -35,3 +35,10 @@ const timerContainer = document.getElementById("timer-container");
 
 // Event listener
 startBtn.addEventListener("click", startQuiz);
+
+// Function to start the quiz
+function startQuiz() {
+    startBtn.style.display = "none";
+    displayQuestion();
+    startTimer();
+}
