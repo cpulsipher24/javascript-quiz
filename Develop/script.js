@@ -20,8 +20,13 @@ const quizQuestions = [
         correctAnswer: 1
     },
     {
-        question: "Which method is used to add an element to the end of an array in JavaScript?",
-        choices: ["push()", "pop()", "shift()", "unshift()"],
+        question: "What is the purpose of the 'setTimeout' function in JavaScript?",
+        choices: [
+            "To set a timer for asynchronous execution of code",
+            "To immediately execute a function",
+            "To create a loop in the code",
+            "To set an interval for repeated execution of code"
+        ],
         correctAnswer: 0
     },
 ];
@@ -51,12 +56,12 @@ function startQuiz() {
 // Function to display a question
 function displayQuestion() {
     const currentQuestion = quizQuestions[currentQuestionIndex];
-    questionContainer.textContext = currentQuestion.question;
+    questionContainer.textContent = currentQuestion.question;
 
     choicesContainer.innerHTML = "";
-    for (let i = 0; i < currentChoices.choices.length; i++) {
+    for (let i = 0; i < currentQuestion.choices.length; i++) {
         const choiceBtn = document.createElement("button");
-        choiceBtn.textContext = currentQuestion.choices[i];
+        choiceBtn.textContent = currentQuestion.choices[i];
         choiceBtn.addEventListener("click", function () {
             checkAnswer(i);
         });
@@ -64,9 +69,10 @@ function displayQuestion() {
     }
 }
 
+
 // Function to check the selected answer
 function checkAnswer(choiceIndex) {
-    constcurrentQuestion = quizQuestions[currentQuestionIndex];
+    const currentQuestion = quizQuestions[currentQuestionIndex];
 
     if(choiceIndex === currentQuestion.correctAnswer) {
         resultContainer.textContent = "Correct!";
@@ -78,7 +84,7 @@ function checkAnswer(choiceIndex) {
         resultContainer.textContent = "";
         currentQuestionIndex++;
 
-        if (currentQuestionIndex < quizQuestions.Length) {
+        if (currentQuestionIndex < quizQuestions.length) {
             displayQuestion();
         } else {
             endQuiz();
@@ -90,7 +96,7 @@ function checkAnswer(choiceIndex) {
     function endQuiz() {
         clearInterval(timer);
         questionContainer.textContent = "Quiz Over!";
-        choicesContainer.innerHTML = '<p>Your score: ${imerCount}</p>';
+        choicesContainer.innerHTML = `<p>Your score: ${timerCount}</p>`;
 
         const initials = prompt("Enter your initials:");
     }
