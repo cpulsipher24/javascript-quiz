@@ -25,3 +25,10 @@ const quizQuestions = [
         correctAnswer: 0
     },
 ];
+
+// Elements
+const startBtn = document.getElementById("start-btn");
+const questionContainer = document.getElementById("question-container");
+const choicesContainer = document.getElementById("choices-container");
+const resultContainer = document.getElementById("result-container");
+const timerContainer = document.getElementById("timer-container");
