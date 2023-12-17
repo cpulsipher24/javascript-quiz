@@ -58,3 +58,25 @@ function displayQuestion() {
         choicesContainer.appendChild(choiceBtn);
     }
 }
+
+// Function to check the selected answer
+function checkAnswer(choiceIndex) {
+    constcurrentQuestion = quizQuestions[currentQuestionIndex];
+
+    if(choiceIndex === currentQuestion.correctAnswer) {
+        resultContainer.textContent = "Correct!";
+    } else {
+        resultContainer.textContent = "Incorrect!";
+        timerCount -= 10; // Subtract 10 seconds for incorrect answer
+    }
+    setTimeout(() => {
+        resultContainer.textContent = "";
+        currentQuestionIndex++;
+
+        if (currentQuestionIndex < quizQuestions.Length) {
+            displayQuestion();
+        } else {
+            endQuiz();
+        }
+    }, 1000);
+    }
