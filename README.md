@@ -25,4 +25,7 @@ A simple quiz application built with HTML, CSS, and JavaScript. The app allows u
 HTML, CSS, Javascript
 
 ## Deployed Link
+https://cpulsipher24.github.io/javascript-quiz/
 
+## License
+Please refer to the LICENSE file in the repository. 
