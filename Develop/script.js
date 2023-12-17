@@ -117,3 +117,22 @@ function endQuiz() {
     
     const initials = prompt("Enter your initials:");
 }
+
+// Function to start the timer
+function startTimer() {
+    timer = setInterval(function () {
+        timerContainer.textContent = `Time: ${timerCount}`;
+        timerCount--;
+
+        if (timerCount < 0) {
+            clearInterval(timer);
+            timerContainer.textContent = "Time's up!";
+            endQuiz(); // Call endQuiz when time is up
+        }
+    }, 1000);
+}
+
+// Function to update the displayed timer value
+function updateTimerDisplay() {
+    document.getElementById("timer").textContent = timerCount;
+}
