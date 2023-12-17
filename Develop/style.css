@@ -17,3 +17,25 @@ body {
     text-align: center;
     margin-bottom: 20px;
 }
+
+#quiz-content {
+    text-align: center;
+}
+
+#question-container {
+    margin: 20px 0;
+}
+
+#choices-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#result-container {
+    margin-top: 20px;
+}
+
+#timer-container {
+    margin-top: 10px;
+    font-weight: bold;
+}
