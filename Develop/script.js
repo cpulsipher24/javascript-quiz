@@ -26,6 +26,11 @@ const quizQuestions = [
     },
 ];
 
+// Other variables
+let currentQuestionIndex = 0;
+let timer;
+let timerCount = 60;
+
 // Elements
 const startBtn = document.getElementById("start-btn");
 const questionContainer = document.getElementById("question-container");
