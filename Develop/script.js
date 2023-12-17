@@ -42,3 +42,19 @@ function startQuiz() {
     displayQuestion();
     startTimer();
 }
+
+// Function to display a question
+function displayQuestion() {
+    const currentQuestion = quizQuestions[currentQuestionIndex];
+    questionContainer.textContext = currentQuestion.question;
+
+    choicesContainer.innerHTML = "";
+    for (let i = 0; i < currentChoices.choices.length; i++) {
+        const choiceBtn = document.createElement("button");
+        choiceBtn.textContext = currentQuestion.choices[i];
+        choiceBtn.addEventListener("click", function () {
+            checkAnswer(i);
+        });
+        choicesContainer.appendChild(choiceBtn);
+    }
+}
