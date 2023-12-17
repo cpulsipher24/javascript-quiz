@@ -1,3 +1,4 @@
+const userAnswers = [];
 const quizQuestions = [
     { 
         question: "What is JavaScript?", 
@@ -74,6 +75,8 @@ function displayQuestion() {
 function checkAnswer(choiceIndex) {
     const currentQuestion = quizQuestions[currentQuestionIndex];
 
+    userAnswers[currentQuestionIndex] = choiceIndex;
+
     if(choiceIndex === currentQuestion.correctAnswer) {
         resultContainer.textContent = "Correct!";
     } else {
@@ -93,10 +96,18 @@ function checkAnswer(choiceIndex) {
     }
 
     // Function to end the quiz
-    function endQuiz() {
-        clearInterval(timer);
-        questionContainer.textContent = "Quiz Over!";
-        choicesContainer.innerHTML = `<p>Your score: ${timerCount}</p>`;
+function endQuiz() {
+    clearInterval(timer);
+    questionContainer.textContent = "Quiz Over!";
+    
+    const correctAnswers = quizQuestions.filter(
+        (question, index) => question.correctAnswer === userAnswers[index]
+    ).length;
 
-        const initials = prompt("Enter your initials:");
-    }
+    const totalQuestions = quizQuestions.length;
+    const percentageScore = (correctAnswers / totalQuestions) * 100;
+
+    choicesContainer.innerHTML = `<p>Your score: ${percentageScore.toFixed(2)}%</p>`;
+    
+    const initials = prompt("Enter your initials:");
+}
