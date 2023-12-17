@@ -85,3 +85,12 @@ function checkAnswer(choiceIndex) {
         }
     }, 1000);
     }
+
+    // Function to end the quiz
+    function endQuiz() {
+        clearInterval(timer);
+        questionContainer.textContent = "Quiz Over!";
+        choicesContainer.innerHTML = '<p>Your score: ${imerCount}</p>';
+
+        const initials = prompt("Enter your initials:");
+    }
