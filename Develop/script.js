@@ -32,3 +32,6 @@ const questionContainer = document.getElementById("question-container");
 const choicesContainer = document.getElementById("choices-container");
 const resultContainer = document.getElementById("result-container");
 const timerContainer = document.getElementById("timer-container");
+
+// Event listener
+startBtn.addEventListener("click", startQuiz);
